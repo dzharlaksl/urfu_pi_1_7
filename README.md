@@ -1,5 +1,7 @@
 # urfu_pi_1_7
 URFU master's degree for group 1.7 - start sept 2023
+add comment from Eroshin Igor - на начальном тестовом этапе коллеги уже загрузили модели
+				пока тестирую модель из примера SF 
 
 ## by Monakhov
 Файл model-mt5-small.py содержит пример использования модели lmqg/mt5-small-ruquad-qg с сайта huggingface.co
@@ -7,5 +9,11 @@ URFU master's degree for group 1.7 - start sept 2023
 библиотеки pytorch и transformers.
 
 
-####### Igor Eroshin 
-            добавление файла sentiment_igor.py содержит код выполнения модели по анализу окраски текста на базе библиотеки sentiment             из примера заданий на платформе SF. Дальше - больше. 
+### Igor Eroshin 
+	Будем анализировать текст на эмоциональную окраску
+	Для этого напишем скрипт на Python и будем использовать готовую библиотеку Transformers для создания pipeline и использования готовой модели
+	1) на виртуальной машине\пк linux установите Python,pip, библиотеку Transformers
+	2) сделайте копию репозитория
+	3) запустите скрипт sentiment_igor.py 
+	4) Анализируемую фразу вы можете указать изменив всего 1 строку в скрипте
+	Готово

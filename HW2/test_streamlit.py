@@ -27,7 +27,7 @@ def strip_symbol(text, symbols):
 
     return text
 
-
+# Загрузка модели
 model = load_model()
 
 st.title('Поиск ответа на вопрос в тексте')

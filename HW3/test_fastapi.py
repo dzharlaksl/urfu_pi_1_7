@@ -10,6 +10,7 @@ app = FastAPI()
 
 model = pipeline('question-answering', 'timpal0l/mdeberta-v3-base-squad2')
 
+# GET метод для проверки работоспособности
 
 @app.get('/')
 def root():

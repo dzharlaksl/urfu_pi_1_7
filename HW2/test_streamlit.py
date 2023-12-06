@@ -38,6 +38,7 @@ question = st.text_input('Введите вопрос:', value='Where do I live?
 
 result = st.button('Получить ответ')
 
+#  Вывод результата
 if result:
     response = model(question = question, context = context)
     print(response)

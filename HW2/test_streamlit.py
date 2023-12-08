@@ -1,3 +1,4 @@
+# Импортируем необходимые библиотеки
 from transformers import pipeline
 import streamlit as st
 

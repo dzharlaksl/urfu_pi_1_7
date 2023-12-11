@@ -1,3 +1,4 @@
+# Импортируем необходимые библиотеки
 from fastapi.testclient import TestClient
 from hw5_fastapi import app
 

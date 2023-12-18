@@ -6,7 +6,9 @@ client = TestClient(app)
 
 
 def test_root():
+# Отправляем запрос
     response = client.get("/")
+# Проверяем статус и текст ответа
     assert response.status_code == 200
     assert response.json() == {"message": "It's a live (by group 1.7)"}
 

@@ -6,11 +6,12 @@ client = TestClient(app)
 
 
 def test_root():
-# Отправляем запрос
+    # Отправляем запрос
     response = client.get("/")
-# Проверяем статус и текст ответа
+    # Проверяем статус и текст ответа
     assert response.status_code == 200
     assert response.json() == {"message": "It's a live (by group 1.7)"}
+
 
 def test_predict():
     """
@@ -22,18 +23,25 @@ def test_predict():
     answer - ответ, который должны получить, задавая вопрос.
     score - число, минимальная уверенность, которая допустима при ответе на вопрос.
     """
-    
-    test_list = [{"context": "My name is Tim and I live in Sweden.", "question": "Where do I live?", "answer": "Sweden", "score": 0.8},
-                 {"context": "My name is Tim and I live in Sweden.", "question": "What is my name?", "answer": "Tim", "score": 0.8}
-    ]
+
+    test_list = [{"context": "My name is Tim and I live in Sweden.",
+                  "question": "Where do I live?",
+                  "answer": "Sweden",
+                  "score": 0.8},
+                 {"context": "My name is Tim and I live in Sweden.",
+                  "question": "What is my name?",
+                  "answer": "Tim",
+                  "score": 0.8}
+                 ]
 
     for valid_rule in test_list:
 
         # Получаем параметры, необходимые для запроса из правила проверки
-        params = dict(context = valid_rule["context"], question = valid_rule["question"])
+        params = dict(context=valid_rule["context"],
+                      question=valid_rule["question"])
 
-        response = client.post("/predict/", json = params)
-        json_data = response.json() 
+        response = client.post("/predict/", json=params)
+        json_data = response.json()
 
         assert response.status_code == 200
         assert json_data["answer"] == valid_rule["answer"]

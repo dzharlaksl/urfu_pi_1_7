@@ -4,15 +4,18 @@ from transformers import pipeline
 from fastapi import FastAPI
 from pydantic import BaseModel
 
+
 class Item(BaseModel):
     context: str
     question: str
+
 
 app = FastAPI()
 
 model = pipeline('question-answering', 'timpal0l/mdeberta-v3-base-squad2')
 
 # GET метод для проверки работоспособности
+
 
 @app.get('/')
 def root():
@@ -31,4 +34,4 @@ def predict(item: Item):
     За реализацию функционала отвечает модель timpal0l/mdeberta-v3-base-squad2
     с сайта huggingface.co. Модель поддерживает ru, en и множество других языков.
     """
-    return model(question = item.question, context = item.context)
+    return model(question=item.question, context=item.context)

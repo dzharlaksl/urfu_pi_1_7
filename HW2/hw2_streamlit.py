@@ -9,7 +9,7 @@ def load_model():
     return model
 
 
-# Markdown не применяется форматирование жирным шрифтом, если с краю стоит "." или ",". 
+# Markdown не применяется форматирование жирным шрифтом, если с краю стоит "." или ",".
 # Модель ошибочно может выводить их в ответ, поэтому такие символы надо удалить.
 def strip_symbol(text, symbols):
 
@@ -28,12 +28,14 @@ def strip_symbol(text, symbols):
 
     return text
 
+
 # Загрузка модели
 model = load_model()
 
 st.title('Поиск ответа на вопрос в тексте')
 
-context = st.text_input('Введите текст, в котором необходимо искать ответы:', value='My name is Tim and I live in Sweden.')
+context = st.text_input('Введите текст, в котором необходимо искать ответы:',
+                        value='My name is Tim and I live in Sweden.')
 
 question = st.text_input('Введите вопрос:', value='Where do I live?')
 
@@ -41,7 +43,8 @@ result = st.button('Получить ответ')
 
 #  Вывод результата
 if result:
-    response = model(question = question, context = context)
+    response = model(question=question, context=context)
     print(response)
-    text = 'Ответ **' + strip_symbol(response['answer'], ' .<>:,=*') + '** с вероятностью **' + str(response['score']) + '**.'
+    text = 'Ответ **' + strip_symbol(response['answer'], ' .<>:,=*') + \
+        '** с вероятностью **' + str(response['score']) + '**.'
     st.write(text)
